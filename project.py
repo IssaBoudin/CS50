@@ -5,9 +5,13 @@ import time
 import threading
 import os
 from colorama import Fore, Back, Style
+#Keep welcome message from popping up.
+from os import environ
+environ['PYGAME_HIDE_SUPPORT_PROMPT'] = '1'
 import pygame
 import simpleaudio as sa
 
+#If not using git to clone the repo, do the following:
 #Ensure the audio .wav files are present in the same directory as the program!
 #wget https://github.com/IssaBoudin/CS50/blob/main/music/CorrectSound.wav
 #wget https://github.com/IssaBoudin/CS50/blob/main/music/NegativeGuitar.wav
@@ -25,7 +29,7 @@ try:
     pygame.mixer.music.load("WorldMusic.wav")
     pygame.mixer.music.play(loops=-1)
 except pygame.error as e:
-    print(f"Couldn't play.: {e}")
+    print(f"Error playing music: {e}")
 
 def main():
     pick()
